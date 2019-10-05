@@ -1,18 +1,32 @@
 # hid-iclass
 
-Python script to diversify an HID iClass standard key
+Python script to diversify HID iClass standard keys.
 
-# Dependencies
-PyCrypto
+## Dependencies
 
-You must have the dumped master key in the same folder of the script in a file named masterkey.hex
+- PyCrypto
 
-# Usage
+	```
+	pip install pycrypto
+	```
+
+## Usage
+
+You must have previously dumped the HID iClass master key. By default, the script will look in the same folder for a file named `masterkey.hex`. You can specify a specific file path by using the `-m / --masterkey` argument.
+
 ```
-$ hid-iclass <CSN>
+usage: hid-iclass.py [-h] [-m MASTERKEY_FILE] CSN
+
+positional arguments:
+  CSN                   HID iClass card serial number (CSN)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -m MASTERKEY_FILE, --masterkey MASTERKEY_FILE
+                        path to dumped master key file (default: masterkey.hex)
 ```
 
-# References
-https://www.openpcd.org/dl/HID-iCLASS-security.pdf
+## References
 
-https://www.cs.bham.ac.uk/~garciaf/publications/dismantling.iClass.pdf
+- https://www.openpcd.org/dl/HID-iCLASS-security.pdf
+- https://www.cs.bham.ac.uk/~garciaf/publications/dismantling.iClass.pdf
